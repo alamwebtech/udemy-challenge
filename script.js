@@ -14,3 +14,61 @@ if (scoreJohn > scoreMike){
 }else{
   alert("Bothe of your score in equal")
 }
+
+// Using function in another Function
+
+function calculateAge(birthDate){
+  var age = 2016 - birthDate;
+  return age;
+}
+
+function retire(name, year){
+  var age = calculateAge(year);
+  var retirement = 65 - age;
+
+  if(retirement >= 0){
+    console.log(name + " will retire after " + retirement + " years.")
+  }else{
+    console.log(name + " already retired. ")
+  }
+}
+
+retire("john", 23);
+
+// Function expression in the object
+
+var john = {
+         name: 'John',
+         lastName: 'Smith',
+         yearOfBirth: 1986,
+         job: 'Software Eng',
+         calculateAge: function() {
+          return  this.age = 2018 - this.yearOfBirth;
+        }
+      };
+
+    john.calculateAge()
+    console.log(john)
+
+
+var years = [1970, 1986, 2002, 2007, 2008];
+var age = [];
+
+for (var i = 0; i < years.length; i++){
+  age[i] = 2018 - years[i];
+}
+
+for (i = 0; i< age.length; i++){
+  if(age[i] <= 18){
+    console.log(
+      "You are not older enough to enter in the hall"
+    );
+    console.log(years.push(false));
+
+  }else{
+    console.log(
+      "You can enter in the Hall"
+    );
+    console.log(years.push(true))
+  }
+}
