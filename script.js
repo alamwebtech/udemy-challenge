@@ -72,3 +72,31 @@ for (i = 0; i< age.length; i++){
     console.log(years.push(true))
   }
 }
+
+// hoisting with statements function and Express Function
+
+function myAge(year){
+  console.log(2018 - year);
+}
+myAge(1986)
+
+// express function
+var herRetirement = function(year){
+  console.log (65 - (2018 - year))
+}
+herRetirement(1986);
+
+// below has shown how Scope Chain ( Bottom to Up) works in javascripts
+
+var a = "Hello!!";
+
+first();
+
+function first(){
+  var b = "HI!!";
+  second();
+  function second(){
+    var c = "Hey!!";
+    console.log(a + b + c);
+  }
+}
