@@ -152,3 +152,14 @@ myAge.currentYear = 2018;
 myAge.bornYear = 1986;
 
 console.log("My name is " + myAge.name + " and I am " + myAge.calculateAge() + " years old man.")
+
+
+// Or we can do make it this way
+
+var jane = Object.create(person, {
+  name: {value: "jane"},
+  currentYear: { value: 2018},
+  bornYear: { value: 1993}
+});
+
+console.log("My name is " + jane.name + " and I am " + jane.calculateAge() + " years old women.")
