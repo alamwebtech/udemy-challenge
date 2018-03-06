@@ -183,3 +183,16 @@ function number(e){
 
 var myAge = calculateAge(years, number);
 console.log(myAge);
+
+
+function fullAge(el){
+  if(el >= 18){
+    return "you are at: " + el + " and you are adult";
+  }else{
+    return "You are young"
+  }
+  return 2018 - el;
+}
+
+var checkAge = calculateAge(myAge, fullAge);
+console.log(checkAge)
