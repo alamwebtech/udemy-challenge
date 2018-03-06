@@ -137,3 +137,18 @@ Car.prototype.carAge = function(){
 var myCar = new Car("Corolla Ce", "Toyota", 2004);
 
 console.log("I have a car called: " + myCar.name + " which is: " + myCar.brand + " brand and it is " + myCar.carAge() + " years old." )
+
+// Creating an object using Object.create Method
+
+var person = {
+  calculateAge: function(){
+    return this.currentYear - this.bornYear;
+  }
+};
+
+var myAge = Object.create(person);
+myAge.name = "Shaf";
+myAge.currentYear = 2018;
+myAge.bornYear = 1986;
+
+console.log("My name is " + myAge.name + " and I am " + myAge.calculateAge() + " years old man.")
