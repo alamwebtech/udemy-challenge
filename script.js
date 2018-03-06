@@ -163,3 +163,23 @@ var jane = Object.create(person, {
 });
 
 console.log("My name is " + jane.name + " and I am " + jane.calculateAge() + " years old women.")
+
+
+// Passing a function as argument
+
+var years = [1920, 1945, 1980, 1975, 2002]
+
+function calculateAge(array, func){
+  newArray = [];
+  for (i = 0; i<array.length; i++){
+    newArray.push(func(array[i]))
+  }
+  return newArray;
+}
+
+function number(e){
+  return 2018 - e;
+}
+
+var myAge = calculateAge(years, number);
+console.log(myAge);
