@@ -121,3 +121,19 @@ var mike = {
 mike.calculateAge = brian.calculateAge;
 
 mike.calculateAge();
+
+// Prototype function
+
+var Car = function(name, brand, years){
+  this.name = name;
+  this.brand = brand;
+  this.years = years;
+};
+
+Car.prototype.carAge = function(){
+  return 2018 - this.years;
+};
+
+var myCar = new Car("Corolla Ce", "Toyota", 2004);
+
+console.log("I have a car called: " + myCar.name + " which is: " + myCar.brand + " brand and it is " + myCar.carAge() + " years old." )
