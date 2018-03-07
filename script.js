@@ -17,18 +17,18 @@
 
 // Using function in another Function
 
-function calculateAge(birthDate){
+function calculateAge(birthDate) {
   var age = 2016 - birthDate;
   return age;
 }
 
-function retire(name, year){
+function retire(name, year) {
   var age = calculateAge(year);
   var retirement = 65 - age;
 
-  if(retirement >= 0){
+  if (retirement >= 0) {
     console.log(name + " will retire after " + retirement + " years.")
-  }else{
+  } else {
     console.log(name + " already retired. ")
   }
 }
@@ -38,34 +38,34 @@ retire("john", 23);
 // Function expression in the object
 
 var john = {
-         name: 'John',
-         lastName: 'Smith',
-         yearOfBirth: 1986,
-         job: 'Software Eng',
-         calculateAge: function() {
-          return  this.age = 2018 - this.yearOfBirth;
-        }
-      };
+  name: 'John',
+  lastName: 'Smith',
+  yearOfBirth: 1986,
+  job: 'Software Eng',
+  calculateAge: function() {
+    return this.age = 2018 - this.yearOfBirth;
+  }
+};
 
-    john.calculateAge()
-    console.log(john)
+john.calculateAge()
+console.log(john)
 
 
 var years = [1970, 1986, 2002, 2007, 2008];
 var age = [];
 
-for (var i = 0; i < years.length; i++){
+for (var i = 0; i < years.length; i++) {
   age[i] = 2018 - years[i];
 }
 
-for (i = 0; i< age.length; i++){
-  if(age[i] <= 18){
+for (i = 0; i < age.length; i++) {
+  if (age[i] <= 18) {
     console.log(
       "You are not older enough to enter in the hall"
     );
     console.log(years.push(false));
 
-  }else{
+  } else {
     console.log(
       "You can enter in the Hall"
     );
@@ -75,14 +75,14 @@ for (i = 0; i< age.length; i++){
 
 // hoisting with statements function and Express Function
 
-function myAge(year){
+function myAge(year) {
   console.log(2018 - year);
 }
 myAge(1986)
 
 // express function
-var herRetirement = function(year){
-  console.log (65 - (2018 - year))
+var herRetirement = function(year) {
+  console.log(65 - (2018 - year))
 }
 herRetirement(1986);
 
@@ -92,10 +92,11 @@ var a = "Hello!!";
 
 first();
 
-function first(){
+function first() {
   var b = "HI!!";
   second();
-  function second(){
+
+  function second() {
     var c = "Hey!!";
     console.log(a + b + c);
   }
@@ -106,10 +107,10 @@ function first(){
 var brian = {
   name: "Brian",
   yearOfBirth: 1940,
-  calculateAge: function(year){
+  calculateAge: function(year) {
     console.log(2018 - this.yearOfBirth);
   }
-} ;
+};
 
 brian.calculateAge();
 
@@ -124,24 +125,24 @@ mike.calculateAge();
 
 // Prototype function
 
-var Car = function(name, brand, years){
+var Car = function(name, brand, years) {
   this.name = name;
   this.brand = brand;
   this.years = years;
 };
 
-Car.prototype.carAge = function(){
+Car.prototype.carAge = function() {
   return 2018 - this.years;
 };
 
 var myCar = new Car("Corolla Ce", "Toyota", 2004);
 
-console.log("I have a car called: " + myCar.name + " which is: " + myCar.brand + " brand and it is " + myCar.carAge() + " years old." )
+console.log("I have a car called: " + myCar.name + " which is: " + myCar.brand + " brand and it is " + myCar.carAge() + " years old.")
 
 // Creating an object using Object.create Method
 
 var person = {
-  calculateAge: function(){
+  calculateAge: function() {
     return this.currentYear - this.bornYear;
   }
 };
@@ -157,9 +158,15 @@ console.log("My name is " + myAge.name + " and I am " + myAge.calculateAge() + "
 // Or we can do make it this way
 
 var jane = Object.create(person, {
-  name: {value: "jane"},
-  currentYear: { value: 2018},
-  bornYear: { value: 1993}
+  name: {
+    value: "jane"
+  },
+  currentYear: {
+    value: 2018
+  },
+  bornYear: {
+    value: 1993
+  }
 });
 
 console.log("My name is " + jane.name + " and I am " + jane.calculateAge() + " years old women.")
@@ -169,15 +176,15 @@ console.log("My name is " + jane.name + " and I am " + jane.calculateAge() + " y
 
 var years = [1920, 1945, 1980, 1975, 2002]
 
-function calculateAge(array, func){
+function calculateAge(array, func) {
   newArray = [];
-  for (i = 0; i<array.length; i++){
+  for (i = 0; i < array.length; i++) {
     newArray.push(func(array[i]))
   }
   return newArray;
 }
 
-function number(e){
+function number(e) {
   return 2018 - e;
 }
 
@@ -185,10 +192,10 @@ var myAge = calculateAge(years, number);
 console.log(myAge);
 
 
-function fullAge(el){
-  if(el >= 18){
+function fullAge(el) {
+  if (el >= 18) {
     return "you are at: " + el + " and you are adult";
-  }else{
+  } else {
     return "You are young"
   }
   return 2018 - el;
@@ -196,3 +203,20 @@ function fullAge(el){
 
 var checkAge = calculateAge(myAge, fullAge);
 console.log(checkAge)
+
+// Function returning a function
+
+function askQuestion(position) {
+  if (position === "teacher") {
+    return function(name) {console.log("What subject do you teach " + name + " ?")}
+  } else if (position === "programmer"){
+      return function(name) {console.log("Which programming language do you teach " + name + " ?")}
+    } else if (position === "designer") {
+      return function(name) {console.log("What do you design " + name + " ?")}
+    }else{
+    return function(name) {console.log("What do you do " + name + "?")}
+  }
+}
+
+var myQuestion = askQuestion("teacher");
+console.log(myQuestion("Shaf"))
