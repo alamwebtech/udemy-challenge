@@ -234,3 +234,25 @@ function retirement(retirementAge){
 
 var myNums = retirement(66);
 console.log(myNums(1986));
+
+// another example of closures
+
+function askQuestion(job){
+  var age = " and how old are you ?"
+  return function(name){
+    if(job === "teacher"){
+      console.log("What do you teach " + name + age)
+    }else if(job === "programmer"){
+      console.log("What programming language do you know " + name + age)
+    }else if(job === designer){
+      console.log("Hello " + name + " what do you design ?")
+    }else{
+      console.log("What do you do " + name + age)
+    }
+  }
+}
+
+var hello = askQuestion("teacher");
+console.log(hello("John"));
+
+var shaf = askQuestion("programmer")("Shafiq");
