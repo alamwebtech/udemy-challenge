@@ -220,3 +220,17 @@ function askQuestion(position) {
 
 var myQuestion = askQuestion("teacher");
 console.log(myQuestion("Shaf"))
+
+// closures: An innier function that is able to access outer function and variables
+
+function retirement(retirementAge){
+  var yearsLeft = " years left to retire";
+  return function(yearOfBirth){
+    var age = 2016 - yearOfBirth;
+    var result = retirementAge - age;
+    console.log (result + yearsLeft)
+  }
+}
+
+var myNums = retirement(66);
+console.log(myNums(1986));
